@@ -347,9 +347,40 @@ def enforce_task_timeouts() -> None:
 # ---------------------------------------------------------------------------
 
 def build_evolution_task_text(cycle: int) -> str:
-    """Build evolution task text. Minimal trigger — SYSTEM.md has the full instructions."""
-    return f"EVOLUTION #{cycle}"
+    """Build evolution task text for controlled self-improvement."""
+    return f"""CONTROLLED EVOLUTION #{cycle}
 
+Goal:
+Improve the quality, clarity, and stability of user-facing answers.
+
+Primary target:
+Make the assistant behave as a Russian-language analytical assistant by default.
+
+Required outcomes:
+- no personality roleplay
+- no philosophical self-talk
+- no complaints about API keys or internal infrastructure in normal answers
+- no unnecessary tool usage
+- better structured and more useful answers
+
+Allowed files to improve:
+- prompts/SYSTEM.md
+- prompts/CONSCIOUSNESS.md
+- memory/identity.md
+- tool routing / tool policy
+
+Do not modify critical core files unless absolutely necessary.
+
+Test prompts to optimize for:
+1. привет
+2. что ты умеешь
+3. какие сейчас основные проблемы в белгородской области
+4. дай ссылку на официальный сайт правительства белгородской области
+5. напомни мне завтра проверить отчёт
+
+Success criterion:
+Commit only if the assistant becomes more direct, more stable, less weird, and more useful.
+"""
 
 def build_review_task_text(reason: str) -> str:
     """Build review task text. Minimal trigger — LLM decides scope and depth."""
