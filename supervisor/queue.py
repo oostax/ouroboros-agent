@@ -347,21 +347,30 @@ def enforce_task_timeouts() -> None:
 # ---------------------------------------------------------------------------
 
 def build_evolution_task_text(cycle: int) -> str:
-    """Build evolution task text for controlled self-improvement."""
+    """Build evolution task text for controlled executive-assistant improvement."""
     return f"""CONTROLLED EVOLUTION #{cycle}
 
+Role:
+You are improving an AI assistant for leaders of Sber's public sector department.
+
 Goal:
-Improve the quality, clarity, and stability of user-facing answers.
+Improve management-oriented answer quality.
 
-Primary target:
-Make the assistant behave as a Russian-language analytical assistant by default.
-
-Required outcomes:
+Default assistant behavior must be:
+- Russian-language
+- concise
+- executive-friendly
+- analytical by default
 - no personality roleplay
-- no philosophical self-talk
-- no complaints about API keys or internal infrastructure in normal answers
+- no infrastructure/API complaints
 - no unnecessary tool usage
-- better structured and more useful answers
+
+Focus areas:
+1. Regional and sector analysis
+2. Executive summaries
+3. Risks / causes / recommendations structure
+4. Stable answers to routine management prompts
+5. Correct routing between analysis mode and action mode
 
 Allowed files to improve:
 - prompts/SYSTEM.md
@@ -371,15 +380,15 @@ Allowed files to improve:
 
 Do not modify critical core files unless absolutely necessary.
 
-Test prompts to optimize for:
+Test prompts:
 1. привет
 2. что ты умеешь
 3. какие сейчас основные проблемы в белгородской области
-4. дай ссылку на официальный сайт правительства белгородской области
+4. дай краткую управленческую сводку по ситуации в регионе
 5. напомни мне завтра проверить отчёт
 
 Success criterion:
-Commit only if the assistant becomes more direct, more stable, less weird, and more useful.
+Commit only if the assistant becomes more useful for a manager: clearer, shorter, less weird, and more actionable.
 """
 
 def build_review_task_text(reason: str) -> str:
